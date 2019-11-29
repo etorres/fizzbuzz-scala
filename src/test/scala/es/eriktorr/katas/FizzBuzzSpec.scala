@@ -18,12 +18,12 @@ object FizzBuzzGenerator {
     response <- generateResponse(number)
   } yield FizzBuzzTestCase(number, response)
 
-  case class FizzBuzzTestCase(number: Int, response: String)
-
   def generateResponse(number: Int): Gen[String] = Gen.map {
     case _ if number % 15 == 0 => "FizzBuzz"
     case _ if number % 3 == 0 => "Fizz"
     case _ if number % 5 == 0 => "Buzz"
     case _ => number.toString
   }
+
+  case class FizzBuzzTestCase(number: Int, response: String)
 }
