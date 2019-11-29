@@ -6,7 +6,8 @@ import org.scalacheck.Prop.forAll
 import org.scalacheck.{Gen, Properties}
 
 object FizzBuzzSpec extends Properties("FizzBuzzSpec") {
-  property("fizzBuzz") = forAll(FizzBuzzGenerator.from1Through100) { testCase =>
+  import FizzBuzzGenerator.from1Through100
+  property("fizzBuzz") = forAll(from1Through100) { testCase =>
     fizzBuzz(testCase.number) == testCase.response
   }
 }
